@@ -8,15 +8,15 @@ import org.springframework.stereotype.Component;
 @Component
 public class MusicPlayer {
     @Value("${musicPlayer.name}")
-    private Music name;
+    private String name;
     @Value("${musicPlayer.volume}")
-    private Music volume;
+    private int volume;
 
-    public Music getName() {
+    public String getName() {
         return name;
     }
 
-    public Music getVolume() {
+    public int getVolume() {
         return volume;
     }
     private Music music1;

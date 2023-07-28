@@ -2,10 +2,23 @@ package org.example;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 
 @Component
 public class MusicPlayer {
+    @Value("${musicPlayer.name}")
+    private Music name;
+    @Value("${musicPlayer.volume}")
+    private Music volume;
+
+    public Music getName() {
+        return name;
+    }
+
+    public Music getVolume() {
+        return volume;
+    }
     private Music music1;
     private Music music2;
 
@@ -16,16 +29,9 @@ public class MusicPlayer {
         this.music2 = music2;
     }
 
-    public String playMusic(MusicList musicList)  {
-        switch (musicList){
-            case ROCK:
-                return "Playing: " + music1.getSong();
-            case CLASSICAL:
-                return "Playing: " + music2.getSong();
-            default:
-               return "немає жанру";
+    public String playMusic()  {
 
-        }
+       return "Playing: " + music1.getSong() + ", " + music2.getSong();
     }
 
 }
